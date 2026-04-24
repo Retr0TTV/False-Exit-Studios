@@ -178,6 +178,15 @@ section{padding:6rem 3rem;max-width:1200px;margin:0 auto;}
 50%{filter:invert(1);}
 100%{filter:invert(0);}
 }
+
+  @keyframes redFlicker{
+0%,100%{opacity:1;}
+50%{opacity:.82;}
+}
+
+.night-haunt{
+animation:redFlicker 2s infinite;
+}
   
 </style>
 </head>
@@ -499,8 +508,16 @@ document.querySelector('.egg-sub').innerHTML = "It notices when you do.";
 const hour = new Date().getHours();
 
 if (hour >= 3 && hour < 4) {
-document.querySelector('.hero-title').innerHTML =
+
+const hero = document.querySelector('.hero-title');
+
+hero.innerHTML =
 "WE BUILD<br>WHAT WATCHES BACK";
+
+hero.style.color="#ff1a1a";
+
+hero.classList.add('night-haunt');
+
 }
 function closeEgg() {
   document.getElementById('easter-egg').classList.remove('show');
