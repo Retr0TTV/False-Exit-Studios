@@ -172,6 +172,13 @@ section{padding:6rem 3rem;max-width:1200px;margin:0 auto;}
   .apply-form{grid-template-columns:1fr;}
   .devlog-item{grid-template-columns:1fr;gap:0.5rem;}
 }
+
+  @keyframes glitchFlash{
+0%{filter:invert(0);}
+50%{filter:invert(1);}
+100%{filter:invert(0);}
+}
+  
 </style>
 </head>
 <body>
@@ -441,13 +448,27 @@ function countUp(el) {
 
 // EASTER EGG — type "exit" anywhere
 let typed = '';
+
 document.addEventListener('keydown', e => {
-  typed += e.key.toLowerCase();
-  if (typed.length > 10) typed = typed.slice(-10);
-  if (typed.includes('exit')) {
-    typed = '';
-    document.getElementById('easter-egg').classList.add('show');
-  }
+ typed += e.key.toLowerCase();
+
+ if (typed.length > 10) typed = typed.slice(-10);
+
+ if (typed.includes('exit')) {
+   typed = '';
+   document.getElementById('easter-egg').classList.add('show');
+ }
+
+ if (typed.includes('dontlookback')) {
+   typed = '';
+
+   document.body.style.animation = "glitchFlash 0.15s 6";
+
+   setTimeout(() => {
+      alert("IT HEARD YOU.");
+   },500);
+ }
+
 });
 
 function closeEgg() {
