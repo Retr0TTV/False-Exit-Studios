@@ -476,7 +476,13 @@ document.body.style.animation = "glitchFlash 0.15s 6";
 },1200);
 }, 300);
  }
+if (typed.includes('areyoureal')) {
+typed='';
 
+document.getElementById('easter-egg').classList.add('show');
+document.querySelector('.egg-text').innerHTML = "ARE YOU?";
+document.querySelector('.egg-sub').innerHTML = "PROVE IT.";
+}
 });
 
 function closeEgg() {
