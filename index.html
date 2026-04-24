@@ -467,8 +467,14 @@ void document.body.offsetWidth;
 document.body.style.animation = "glitchFlash 0.15s 6";
 
    setTimeout(() => {
-      alert("IT HEARD YOU.");
-   },500);
+  document.getElementById('easter-egg').classList.add('show');
+  document.querySelector('.egg-text').innerHTML = "DON'T LOOK BACK";
+  document.querySelector('.egg-sub').innerHTML = "IT'S BEHIND YOU.";
+  document.body.style.filter="contrast(180%)";
+   setTimeout(() => {
+  document.body.style.filter = "";
+},1200);
+}, 300);
  }
 
 });
