@@ -452,7 +452,7 @@ let typed = '';
 document.addEventListener('keydown', e => {
  typed += e.key.toLowerCase();
 
- if (typed.length > 10) typed = typed.slice(-10);
+ if (typed.length > 30) typed = typed.slice(-30);
 
  if (typed.includes('exit')) {
    typed = '';
@@ -462,7 +462,9 @@ document.addEventListener('keydown', e => {
  if (typed.includes('dontlookback')) {
    typed = '';
 
-   document.body.style.animation = "glitchFlash 0.15s 6";
+   document.body.style.animation = "none";
+void document.body.offsetWidth;
+document.body.style.animation = "glitchFlash 0.15s 6";
 
    setTimeout(() => {
       alert("IT HEARD YOU.");
